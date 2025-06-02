@@ -28,8 +28,8 @@ data "aws_subnet" "default_subnet" {
 }
 
 resource "aws_security_group" "ec2_sg" {
-  name        = "${var.app_name}-sg-v2"
-  description = "Allow inbound traffic for app"
+  name        = "${var.app_name}-sg"
+  description = "Allow web app access on ports 8081-8083 and SSH access on port 22"
   vpc_id      = data.aws_subnet.default_subnet.vpc_id
 
   ingress {
