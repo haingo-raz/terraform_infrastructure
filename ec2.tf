@@ -28,7 +28,7 @@ data "aws_subnet" "default_subnet" {
 }
 
 resource "aws_security_group" "ec2_sg" {
-  name        = "${var.app_name}-sg"
+  name        = "${var.app_name}-sg-v2"
   description = "Allow inbound traffic for app"
   vpc_id      = data.aws_subnet.default_subnet.vpc_id
 
