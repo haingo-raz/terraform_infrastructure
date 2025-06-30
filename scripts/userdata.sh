@@ -19,6 +19,6 @@ chmod +x kubectl
 mv kubectl /usr/local/bin/  # System-wide access
 
 # Install kind (Kubernetes in Docker)
-curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.11.0/kind-linux-amd64
-chmod +x kind
-mv kubectl /usr/local/bin/kubectl
+curl -sLo kind https://kind.sigs.k8s.io/dl/v0.11.0/kind-linux-amd64
+sudo install -o root -g root -m 0755 kind /usr/local/bin/kind
+rm -f ./kind
