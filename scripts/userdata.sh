@@ -1,4 +1,8 @@
 #!/bin/bash
+
+# Exit immediately on error
+set -e
+
 # System updates
 yum update -y
 
@@ -10,6 +14,11 @@ systemctl enable docker
 chmod 666 /var/run/docker.sock  # Ensures non-root access
 
 # kubectl installation (specific version)
-curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.24.9/2023-01-11/bin/linux/amd64/kubectl
+curl -LO https://s3.us-west-2.amazonaws.com/amazon-eks/1.30.7/2024-12-12/bin/linux/amd64/kubectl
 chmod +x kubectl
 mv kubectl /usr/local/bin/  # System-wide access
+
+# Install kind (Kubernetes in Docker)
+curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.11.0/kind-linux-amd64
+chmod +x kind
+mv kubectl /usr/local/bin/kubectl
