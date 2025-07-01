@@ -10,7 +10,7 @@ variable "app_name" {
 
 variable "ec2_instance_type" {
   type    = string
-  default = "t3.small"
+  default = "t3.medium"
 }
 
 variable "key_name" {
